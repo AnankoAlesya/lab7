@@ -15,7 +15,6 @@ public class DetailFragment extends Fragment {
         TextView details = view.findViewById(R.id.details);
         title.setText("");
         details.setText("");
-        // Ваши дальнейшие действия, включая поиск элементов через findViewById
         return view;
     }
 
