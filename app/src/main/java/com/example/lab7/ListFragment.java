@@ -86,13 +86,15 @@ public class ListFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 ArrayList<String> dataDetails = new ArrayList<String>();
                 prepareDetailsList(dataDetails);
-                TextView titleText = getActivity().findViewById(R.id.title);
-                titleText.setText(adapterView.getItemAtPosition(i).toString());
-                TextView detailsText = getActivity().findViewById(R.id.details);
-                detailsText.setText(dataDetails.get(i).toString());
+                String title = adapterView.getItemAtPosition(i).toString();
+                String details = dataDetails.get(i);
 
-                //Toast.makeText(getContext(), months.get(i), Toast.LENGTH_SHORT).show();
+                Bundle result = new Bundle();
+                result.putString("title", title);
+                result.putString("details", details);
+                getParentFragmentManager().setFragmentResult("detailKey", result);
             }
+
         });
     }
     public void prepareDataList(ArrayList<String> data){
